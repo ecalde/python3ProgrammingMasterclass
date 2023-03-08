@@ -1,8 +1,13 @@
-# 🚨 Don't change the code below 👇
+# Take both people's names and check for the number of times the letters in the word TRUE occurs.
+
+# Then check for the number of times the letters in the word LOVE occurs.
+
+# Then combine these numbers to make a 2 digit number.
+
 print("Welcome to the Love Calculator!")
 name1 = input("What is your name? \n")
 name2 = input("What is their name? \n")
-# 🚨 Don't change the code above 👆
+
 name1Lower = name1.lower()
 name2Lower = name2.lower()
 firstTCount = (name1Lower.count("t")) + (name2Lower.count("t"))
