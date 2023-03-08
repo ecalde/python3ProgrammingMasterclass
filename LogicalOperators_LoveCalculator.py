@@ -29,4 +29,3 @@ elif total > 40 and total < 50:
 else:
     print(f"Your score is {total}.")
 
-#Write your code below this line 👇
