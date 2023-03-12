@@ -15,3 +15,5 @@ for number in range(1, 101):
         print("Buzz")
     else:
         print(number)
+
+        number % 3 == 0 and number % 5 == 0
