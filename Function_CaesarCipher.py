@@ -1,21 +1,35 @@
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-            'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-            'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+import Function_CaesarArt
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+print(Function_CaesarArt.logo)
+
+alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+            'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
+            'v', 'w', 'x', 'y', 'z']
 
 def caesar(text, shift, direction):
     new_text = ""
     if direction == "decode":
         shift *= -1
-    for letter in text:
-        index = alphabet.index(letter)
-        new_text += alphabet[index + shift]
+    for char in text:
+        if char in alphabet:
+            index = alphabet.index(char)
+            new_text += alphabet[index + shift]
+        else:
+            new_text += char
     print(f"The {direction}d text is {new_text}")
 
-caesar(text, shift, direction)
+end = False
+while end == False:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+    # Edge case, if user inputs a shift larger than our alphabet
+    shift = shift % 26
+    caesar(text, shift, direction)
+    choice = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
+    if choice == "no":
+        end = True
+        print("Goodbye.\n")
 
 # def encrypt(plain_text, shift_amount):
 #     encrypt_text = ""
